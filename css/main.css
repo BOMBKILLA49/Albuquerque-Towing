@@ -3870,7 +3870,6 @@ header [class*="col-"],
 
 .parallax.cs:after,
 .background_cover.cs:after {
-	background-color: #ffc326;
 	-ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=90)";
 	filter: alpha(opacity=93);
 	opacity: 0.93;
