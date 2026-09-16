@@ -669,62 +669,6 @@ function documentReadyInit() {
 		else jQuery(this).removeClass("empty")
 	});
 
-	// vector map
-	if (jQuery().vectorMap) {
-		var offices = [
-			{coords: [51.91, 19.15], country: 'Poland', amount: '13'},
-			{coords: [56.13, -106.34], country: 'Canada', amount: '56'},
-			{coords: [37.09, -95.71], country: 'USA', amount: '34'},
-			{coords: [-14.23, -51.92], country: 'Brazil', amount: '10'},
-			{coords: [28.03, 1.66], country: 'Algeria', amount: '3'},
-			{coords: [35.86, 104.16], country: 'China', amount: '40'},
-			{coords: [-25.27, 133.77], country: 'Australia', amount: '35'},
-			{coords: [61.52, 105.32], country: 'Russia', amount: '20'}
-		];
-		jQuery('#offices-map').vectorMap({
-			map: 'world_merc',
-			backgroundColor: 'transparent',
-			zoomOnScroll: false,
-			regionStyle: {
-				initial: {
-					fill: '#f0f0f0'
-				},
-				hover: {
-					"fill-opacity": 1,
-					cursor: 'default'
-				}
-			},
-			markerStyle: {
-				initial: {
-					fill: '#b4b4b4',
-					stroke: 'none',
-					r: 7
-				},
-				hover: {
-					fill: '#ffc326',
-					stroke: 'none'
-				}
-			},
-			regionLabelStyle: 'none',
-			markers: offices.map(function(h){ return {name: h.amount, latLng: h.coords} }),
-			labels: {
-				markers: {
-					render: function(index){
-						return offices[index].country;
-					},
-					offsets: function(index){
-						var offset = offices[index]['offsets'] || [0, 0];
-
-						return [offset[0] - 35, offset[1] + 18];
-					}
-				}
-			},
-			onRegionTipShow: function (e, label, code) {
-			    e.preventDefault();
-			}
-		});
-	}
-
 }
 //eof documentReadyInit
 
