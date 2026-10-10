@@ -14334,3 +14334,13 @@ tr.item-editable .media-left img {
 		max-width: none;
 	}
 }
+
+/* Logo: city name in white, service in orange; new pin logo shown at the old size */
+.logo_text .logo-city {
+	color: #ffffff;
+}
+
+a.logo img {
+	height: 65px;
+	width: auto;
+}
