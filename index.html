@@ -36,7 +36,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/animations.css">
 	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="css/main.css" id="color-switcher-link">
+	<link rel="stylesheet" href="css/main.css?v=3" id="color-switcher-link">
 	<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 
 	<!--[if lt IE 9]>
@@ -138,7 +138,7 @@
 							<div class="logo_wrapper">
 
 								<a href="./" class="logo">
-									<img src="images/logo.png" alt="">
+									<img src="images/logo.png?v=2" alt="">
 									<span class="logo_text">
 										<span class="highlight">ALBUQUERQUE TOWING</span>
 										<span>24/7 Towing & More</span>
@@ -435,8 +435,8 @@
 							<hr class="divider_30_3 zebra_bg">
 						</div>
 					</div>
-					<div class="row topmargin_30">
-						<div class="col-md-4">
+					<div class="row topmargin_30 services-grid">
+						<div class="col-md-3 col-sm-6">
 							<div class="with_padding">
 								<div class="teaser text-center">
 									<a href="https://www.albuquerque-towing.com/albuquerque-nm-towing.html"><img src="images/icons/towing.png" alt="Light Duty Towing Services Albuquerque New Mexico" /></a>
@@ -448,7 +448,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3 col-sm-6">
 							<div class="with_padding">
 								<div class="teaser text-center">
 									<a href="https://www.albuquerque-towing.com/albuquerque-nm-heavy-duty-towing.html"><img src="images/icons/motocycle.png" alt="Heavy Duty Towing Albuquerque New Mexico" /></a>
@@ -460,7 +460,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3 col-sm-6">
 							<div class="with_padding">
 								<div class="teaser text-center">
 									<a href="https://www.albuquerque-towing.com/albuquerque-motorcycle-towing.html"><img src="images/icons/motorcycle-towing.png" alt="Motorcycle Towing in Albuquerque New Mexico" /></a>
@@ -472,7 +472,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3 col-sm-6">
 							<div class="with_padding">
 								<div class="teaser text-center">
 									<a href="https://www.albuquerque-towing.com/albuquerque-nm-fuel-delivery.html"><img src="images/icons/accident.png" alt="Fuel Delivery Albuquerque New Mexico" /></a>
@@ -484,7 +484,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3 col-sm-6">
 							<div class="with_padding">
 								<div class="teaser text-center">
 									<a href="https://www.albuquerque-towing.com/albuquerque-vehicle-lock-smith.html"><img src="images/icons/fire.png" alt="Vehicle Lock outs and Vehicle Lock Smith" /></a>
@@ -496,7 +496,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3 col-sm-6">
 							<div class="with_padding">
 								<div class="teaser text-center">
 									<a href="https://www.albuquerque-towing.com/albuquerque-oversize-transportation.html"><img src="images/icons/oversize-transportation-icon.png" alt="Large Oversize Transportation Albuquerque New Mexico" /></a>
@@ -512,7 +512,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3 col-sm-6">
 							<div class="with_padding">
 								<div class="teaser text-center">
 									<a href="https://www.albuquerque-towing.com/albuquerque-rv-towing.html"><img src="images/icons/towing.png" alt="RV Towing Albuquerque New Mexico" /></a>
@@ -524,7 +524,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3 col-sm-6">
 							<div class="with_padding">
 								<div class="teaser text-center">
 									<a href="https://www.albuquerque-towing.com/albuquerque-roadside-assistance.html"><img src="images/icons/flood.png" alt="Roadside Assistance Albuquerque New Mexico" /></a>
@@ -582,9 +582,49 @@
 			</section>
 
             <!-- MAP -->
-        <section class="p-0">
-            <iframe width="100%;" height="500" id="gmap_canvas" src="https://www.google.com/maps?q=2701+Carlisle+Blvd+NE,+Albuquerque,+NM+87110&output=embed"></iframe>
+        <section class="p-0 service-area-map">
+            <div class="map-caption">
+                <strong>Our Service Area</strong>
+                Albuquerque, Rio Rancho, the South Valley, the North Valley &amp; Bernalillo.
+            </div>
+            <div id="service-map" style="height:500px;" role="img" aria-label="Map of the Albuquerque Towing service area covering Albuquerque, Rio Rancho, South Valley, North Valley and Bernalillo"></div>
         </section>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+        <script>
+            // Service-area map: shaded zone over the metro with a label on each area we cover.
+            (function () {
+                if (typeof L === 'undefined') return;
+                var map = L.map('service-map', { scrollWheelZoom: false, zoomControl: true });
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 18,
+                    attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(map);
+                var area = L.polygon([
+                    [35.345, -106.585], [35.335, -106.500], [35.230, -106.470],
+                    [35.060, -106.460], [34.975, -106.560], [34.960, -106.700],
+                    [35.040, -106.790], [35.200, -106.800], [35.300, -106.730]
+                ], { color: '#ff6b1a', weight: 3, fillColor: '#ff6b1a', fillOpacity: 0.18 }).addTo(map);
+                [
+                    ['Bernalillo', 35.300, -106.551],
+                    ['Rio Rancho', 35.233, -106.663],
+                    ['North Valley', 35.135, -106.645],
+                    ['Albuquerque', 35.084, -106.610],
+                    ['South Valley', 35.010, -106.678]
+                ].forEach(function (a) {
+                    L.circleMarker([a[1], a[2]], { radius: 6, color: '#ffffff', weight: 2, fillColor: '#ff6b1a', fillOpacity: 1 })
+                        .bindTooltip(a[0], { permanent: true, direction: 'right', className: 'area-label' })
+                        .addTo(map);
+                });
+                var fit = function () {
+                    map.invalidateSize();
+                    map.fitBounds(area.getBounds(), { padding: [20, 20] });
+                };
+                fit();
+                window.addEventListener('load', fit);
+                window.addEventListener('resize', fit);
+            })();
+        </script>
 			<section class="ds background_cover page_testimonials section_padding_50">
 				<div class="container">
 					<div class="row">
@@ -766,7 +806,7 @@
 						<div class="col-md-3 col-sm-6 to_animate" data-animation="fadeInUp">
 
 							<a href="./" class="logo">
-								<img src="images/logo.png" alt="">
+								<img src="images/logo.png?v=2" alt="">
 								<span class="logo_text">
 									<span class="highlight">ALBUQUERQUE TOWING</span>
 									<span>24/7 Towing & More</span>
